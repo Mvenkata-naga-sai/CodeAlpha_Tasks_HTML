@@ -1,4 +1,4 @@
-# 🛒 E-Commerce Website (Django Project)
+# 🛒 E-Commerce Website 
 
 ## 📌 Project Description
 
