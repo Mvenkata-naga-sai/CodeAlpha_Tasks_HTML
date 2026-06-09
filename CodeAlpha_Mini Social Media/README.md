@@ -54,50 +54,6 @@ social_media_project/
 
 ---
 
-## ⚙️ Installation & Setup
-
-### 1️⃣ Download or Clone Project
-
-```bash
-git clone <your-repo-link>
-cd social_media_project
-```
-
----
-
-### 2️⃣ Install Dependencies
-
-```bash
-pip install django
-```
-
----
-
-### 3️⃣ Apply Migrations
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
----
-
-### 4️⃣ Run Server
-
-```bash
-python manage.py runserver
-```
-
----
-
-### 5️⃣ Open in Browser
-
-```
-http://127.0.0.1:8000/
-```
-
----
-
 ## 🔐 How to Use
 
 1. Register a new account
@@ -139,7 +95,7 @@ http://127.0.0.1:8000/
 ## 👨‍💻 Author
 
 **Venkata Naga Sai**
-Final Year - Computer Science Engineering
+Computer Science Engineering
 
 ---
 
