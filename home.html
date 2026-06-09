@@ -1,1 +1,0 @@
-<form method='POST' action='/post/'>{% csrf_token %}<textarea name='content'></textarea><button>Post</button></form>{% for p in posts %}<p>{{p.user}}: {{p.content}}</p><a href='/like/{{p.id}}'>Like</a><form method='POST' action='/comment/{{p.id}}'>{% csrf_token %}<input name='text'><button>Comment</button></form>{% endfor %}
