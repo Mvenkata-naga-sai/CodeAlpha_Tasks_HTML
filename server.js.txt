@@ -1,0 +1,72 @@
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+let users = [];
+let projects = [];
+let tasks = [];
+
+// Register
+app.post('/register', (req, res) => {
+    const user = { id: Date.now(), username: req.body.username };
+    users.push(user);
+    res.json(user);
+});
+
+// Login
+app.post('/login', (req, res) => {
+    const user = users.find(u => u.username === req.body.username);
+    if (user) res.json(user);
+    else res.status(404).send("User not found");
+});
+
+// Create Project
+app.post('/projects', (req, res) => {
+    const project = {
+        id: Date.now(),
+        name: req.body.name,
+        members: [req.body.userId]
+    };
+    projects.push(project);
+    res.json(project);
+});
+
+// Get Projects
+app.get('/projects', (req, res) => {
+    res.json(projects);
+});
+
+// Create Task
+app.post('/tasks', (req, res) => {
+    const task = {
+        id: Date.now(),
+        title: req.body.title,
+        projectId: req.body.projectId,
+        assignedTo: req.body.userId,
+        comments: []
+    };
+    tasks.push(task);
+    res.json(task);
+});
+
+// Get Tasks
+app.get('/tasks/:projectId', (req, res) => {
+    const projectTasks = tasks.filter(t => t.projectId == req.params.projectId);
+    res.json(projectTasks);
+});
+
+// Add Comment
+app.post('/tasks/:id/comment', (req, res) => {
+    const task = tasks.find(t => t.id == req.params.id);
+    if (task) {
+        task.comments.push(req.body.comment);
+        res.json(task);
+    } else {
+        res.status(404).send("Task not found");
+    }
+});
+
+app.listen(3000, () => console.log("Server running on http://localhost:3000"));
