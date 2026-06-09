@@ -1,4 +1,4 @@
-# 📱 Mini Social Media Platform (Django)
+# 📱 Mini Social Media Platform 
 
 ## 📌 Project Description
 
